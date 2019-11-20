@@ -1,6 +1,6 @@
 from django.shortcuts import get_object_or_404, render
 from django.http import Http404
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from polls.models import Choice, Question
 from django.template import loader
 from django.views import generic
@@ -26,7 +26,8 @@ def get_queryset(self):
     ).order_by('-pub_date')[:5]
 
 class DetailView(generic.DetailView):
-    ...
+    model = Question
+    template_name = 'polls/detail.html'
     def get_queryset(self):
         """
         Excludes any questions that aren't published yet.
