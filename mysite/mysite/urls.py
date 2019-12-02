@@ -20,7 +20,7 @@ from polls import views
 urlpatterns = [
     path('polls/', include('polls.urls')),
     path('admin/', admin.site.urls),
-    path('pizza/', include('pizza.urls')),
+    path('api/', include('api.urls')),
     #path('', views.index, name='index'),
     # ex: /polls/5/
     #path('<int:question_id>/', views.detail, name='detail'),
